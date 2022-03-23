@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
 import { FontAwesome } from '@expo/vector-icons';
 import { useRoute } from '@react-navigation/native';
 import api from '../../services/api';
-import { useFavorite } from '../../hooks/useFavorite';
 import Header from '../../components/Header';
-import Card from '../../components/Card';
+import GlobalContent from '../../components/GlobalContent';
+import { useFavorite } from '../../hooks/useFavorite';
 import {
   Wrapper,
   Question,
@@ -35,7 +34,7 @@ const UserRepositories = () => {
   }, [isFavorite]);
 
   useEffect(() => {
-    async function loadRepositories() {
+    async function loadingRepositories() {
       const response = await api.get(`/users/${user.login}/repos`);
       let data = [];
 
@@ -51,24 +50,24 @@ const UserRepositories = () => {
 
       setRepositories(data);
     }
-    loadRepositories();
+    loadingRepositories();
   }, [user]);
 
   useEffect(() => {
-    async function verifyFavoriteStatus() {
+    async function checkIfIsFavorite() {
       favorites.forEach((favorite) => {
         if (favorite.id === user.id) {
           setIsFavorite(true);
         }
       });
     }
-    verifyFavoriteStatus();
+    checkIfIsFavorite();
   }, []);
 
   return (
     <>
       <Header />
-      <Card>
+      <GlobalContent>
         <Wrapper>
           <Question>Favoritar {user.login}?</Question>
           <Button
@@ -100,7 +99,7 @@ const UserRepositories = () => {
             </RepositoryItem>
           )}
         />
-      </Card>
+      </GlobalContent>
     </>
   );
 };

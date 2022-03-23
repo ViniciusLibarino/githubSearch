@@ -3,12 +3,7 @@ import { useContext } from 'react';
 import { FavoritesUsersContext } from '../contexts/FavoritesUsersContext';
 
 export function useFavorite() {
-  const context = useContext(FavoritesUsersContext);
-  if (!context) {
-    throw new Error('Não há um contexto para ser consumido por useContext.');
-  }
-
-  const { favorites, setFavorites } = context;
+  const { favorites, setFavorites } = useContext(FavoritesUsersContext);
 
   async function addFavorite(user) {
     const { id, login, avatar_url } = user;

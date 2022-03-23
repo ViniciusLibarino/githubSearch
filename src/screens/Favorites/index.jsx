@@ -12,7 +12,7 @@ import {
 import { FontAwesome } from '@expo/vector-icons';
 import { useFavorite } from '../../hooks/useFavorite';
 import Header from '../../components/Header';
-import Card from '../../components/Card';
+import GlobalContent from '../../components/GlobalContent';
 import EmptyUsersList from '../../components/EmptyUserList';
 
 const Favorites = () => {
@@ -21,7 +21,7 @@ const Favorites = () => {
   return (
     <>
       <Header />
-      <Card>
+      <GlobalContent>
         <Container>
           <Title>Meus favoritos</Title>
           {favorites.length === 0 ? (
@@ -45,7 +45,7 @@ const Favorites = () => {
             />
           )}
         </Container>
-      </Card>
+      </GlobalContent>
     </>
   );
 };

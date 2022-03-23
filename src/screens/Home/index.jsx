@@ -5,7 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import api from '../../services/api';
 import EmptyUsersList from '../../components/EmptyUserList';
 import Header from '../../components/Header';
-import Card from '../../components/Card';
+import GlobalContent from '../../components/GlobalContent';
 import ListItem from '../../components/ListItem';
 
 const Home = () => {
@@ -48,7 +48,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <Card>
+      <GlobalContent>
         <Container>
           <Input
             placeholder="Buscar usuário"
@@ -74,7 +74,7 @@ const Home = () => {
             />
           </ListContainer>
         )}
-      </Card>
+      </GlobalContent>
     </>
   );
 };
